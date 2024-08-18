@@ -1,10 +1,48 @@
 ---
 author: "Jiten"
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css"> <!-- Link to a custom stylesheet -->
+</head>
+<body>
 
-<h1>{{page.title}}</h1>
-<br>
-<h3>{{layout.author}}</h3>
-<br>
-{% include header.html color="blue" %}
-{{content}}
+    <!-- Navigation -->
+    {% include header.html color="blue" %}
+    
+    <!-- Page Header -->
+    <header class="page-header" style="background-color: #f0f8ff; padding: 20px 0;">
+        <div class="container">
+            <h1 style="font-size: 2.5em; color: #333; text-align: center;">{{ page.title }}</h1>
+            <p style="text-align: center; font-size: 1.2em; color: #666;">by {{ layout.author }}</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="margin: 20px auto; max-width: 800px;">
+        <article>
+            {{ content }}
+        </article>
+    </main>
+
+    <!-- Sidebar (Optional) -->
+    <aside class="sidebar" style="background-color: #f7f7f7; padding: 15px; margin-top: 20px;">
+        <h3>Related Posts</h3>
+        <ul>
+            {% for post in site.posts %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #333; color: white; padding: 10px 0; text-align: center; margin-top: 40px;">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

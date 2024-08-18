@@ -5,11 +5,12 @@ permalink: "/default-front-matter"
 ---
 
 
-Default front matter Navigation list
+<h3 style="color:white;">  Default front matter Navigation list </h3>
 
+<div style="color:white">
 {% for post in site.posts%}
 <li>
-<a href="{{post.url}}"> {{post.title}}</a>
+<a style="color: darkblue" href="{{post.url}}"> {{post.title}}</a>
 </li>
 {% endfor %}
 
@@ -19,3 +20,5 @@ Default front matter Navigation list
 {{people.name}} , {{people.Occupation}}
 <br>
 {% endfor %}
+
+</div>
